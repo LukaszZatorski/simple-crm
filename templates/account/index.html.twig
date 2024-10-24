@@ -1,0 +1,47 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Account{% endblock %}
+
+{% block body %}
+<div class="container mt-5">
+    <h1 class="mb-4">Account List</h1>
+    <div class="table-responsive">
+        <table class="table table-striped account-table w-100">
+            <thead>
+                <tr>
+                    <th scope="col">Name</th>
+                    <th scope="col">City</th>
+                    <th scope="col">Billing Country</th>
+                    <th scope="col">Phone</th>
+                    <th scope="col">User</th>
+                    <th scope="col">Email Address</th>
+                    <th scope="col">Date Created</th>
+                    <th scope="col">Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for account in accounts %}
+                    <tr>
+                        <td>{{ account.name }}</td>
+                        <td>{{ account.city }}</td>
+                        <td>{{ account.billingCountry }}</td>
+                        <td>{{ account.phone }}</td>
+                        <td>{{ account.user }}</td>
+                        <td>{{ account.email }}</td>
+                        <td>{{ account.dateCreated|date('Y-m-d') }}</td>
+                        <td>
+                            <a href="{{ path('account_show', {'id': account.id}) }}" class="btn btn-info btn-sm">View</a>
+                            <a href="{{ path('account_edit', {'id': account.id}) }}" class="btn btn-warning btn-sm">Edit</a>
+                            <a href="{{ path('account_delete', {'id': account.id}) }}" class="btn btn-danger btn-sm">Delete</a>
+                        </td>
+                    </tr>
+                {% else %}
+                    <tr>
+                        <td colspan="8" class="text-center">No accounts found</td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</div>
+{% endblock %}

@@ -1,3 +1,18 @@
 body {
-    background-color: skyblue;
+    background-color: #e0e0e0;
+}
+
+.account-table {
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+.account-table th, .account-table td {
+    vertical-align: middle;;
+}
+.account-table .btn {
+    margin-right: 5px;
+}
+.account-table .btn:last-child {
+    margin-right: 0;
 }
