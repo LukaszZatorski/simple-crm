@@ -3,10 +3,10 @@
 {% block title %}Account{% endblock %}
 
 {% block body %}
-<div class="container mt-5">
-    <h1 class="mb-4">Account List</h1>
+<div class="container-fluid mt-5">
+    <h1 class="mb-4">Accounts</h1>
     <div class="table-responsive">
-        <table class="table table-striped account-table w-100">
+        <table class="table table-striped w-100">
             <thead>
                 <tr>
                     <th scope="col">Name</th>
@@ -19,7 +19,7 @@
                     <th scope="col">Actions</th>
                 </tr>
             </thead>
-            <tbody>
+            <tbody class="">
                 {% for account in accounts %}
                     <tr>
                         <td>{{ account.name }}</td>
