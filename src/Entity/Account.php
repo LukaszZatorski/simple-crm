@@ -18,19 +18,19 @@ class Account
     private ?string $name = null;
 
     #[ORM\Column(length: 255, nullable: true)]
-    private ?string $billing_street = null;
+    private ?string $billingStreet = null;
 
     #[ORM\Column(length: 255, nullable: true)]
-    private ?string $billing_city = null;
+    private ?string $billingCity = null;
 
     #[ORM\Column(length: 255, nullable: true)]
-    private ?string $billing_state = null;
+    private ?string $billingState = null;
 
     #[ORM\Column(length: 255, nullable: true)]
-    private ?string $billing_zip = null;
+    private ?string $billingZip = null;
 
     #[ORM\Column(length: 255, nullable: true)]
-    private ?string $billing_country = null;
+    private ?string $billingCountry = null;
 
     #[ORM\Column(length: 255, nullable: true)]
     private ?string $phone = null;
@@ -39,7 +39,7 @@ class Account
     private ?string $email = null;
 
     #[ORM\Column(length: 255, nullable: true)]
-    private ?string $tax_number = null;
+    private ?string $taxNumber = null;
 
     #[ORM\Column(length: 255, nullable: true)]
     private ?string $website = null;
@@ -48,13 +48,13 @@ class Account
     private ?string $description = null;
 
     #[ORM\Column]
-    private ?\DateTimeImmutable $created_at = null;
+    private ?\DateTimeImmutable $createdAt = null;
 
     #[ORM\Column(nullable: true)]
-    private ?\DateTimeImmutable $updated_at = null;
+    private ?\DateTimeImmutable $updatedAt = null;
 
     #[ORM\ManyToOne(inversedBy: 'accounts')]
-    private ?User $assigned_to = null;
+    private ?User $assignedTo = null;
 
     public function getId(): ?int
     {
@@ -75,60 +75,60 @@ class Account
 
     public function getBillingStreet(): ?string
     {
-        return $this->billing_street;
+        return $this->billingStreet;
     }
 
-    public function setBillingStreet(?string $billing_street): static
+    public function setBillingStreet(?string $billingStreet): static
     {
-        $this->billing_street = $billing_street;
+        $this->billingStreet = $billingStreet;
 
         return $this;
     }
 
     public function getBillingCity(): ?string
     {
-        return $this->billing_city;
+        return $this->billingCity;
     }
 
-    public function setBillingCity(?string $billing_city): static
+    public function setBillingCity(?string $billingCity): static
     {
-        $this->billing_city = $billing_city;
+        $this->billingCity = $billingCity;
 
         return $this;
     }
 
     public function getBillingState(): ?string
     {
-        return $this->billing_state;
+        return $this->billingState;
     }
 
-    public function setBillingState(?string $billing_state): static
+    public function setBillingState(?string $billingState): static
     {
-        $this->billing_state = $billing_state;
+        $this->billingState = $billingState;
 
         return $this;
     }
 
     public function getBillingZip(): ?string
     {
-        return $this->billing_zip;
+        return $this->billingZip;
     }
 
-    public function setBillingZip(?string $billing_zip): static
+    public function setBillingZip(?string $billingZip): static
     {
-        $this->billing_zip = $billing_zip;
+        $this->billingZip = $billingZip;
 
         return $this;
     }
 
     public function getBillingCountry(): ?string
     {
-        return $this->billing_country;
+        return $this->billingCountry;
     }
 
-    public function setBillingCountry(?string $billing_country): static
+    public function setBillingCountry(?string $billingCountry): static
     {
-        $this->billing_country = $billing_country;
+        $this->billingCountry = $billingCountry;
 
         return $this;
     }
@@ -159,12 +159,12 @@ class Account
 
     public function getTaxNumber(): ?string
     {
-        return $this->tax_number;
+        return $this->taxNumber;
     }
 
-    public function setTaxNumber(?string $tax_number): static
+    public function setTaxNumber(?string $taxNumber): static
     {
-        $this->tax_number = $tax_number;
+        $this->taxNumber = $taxNumber;
 
         return $this;
     }
@@ -195,36 +195,36 @@ class Account
 
     public function getCreatedAt(): ?\DateTimeImmutable
     {
-        return $this->created_at;
+        return $this->createdAt;
     }
 
-    public function setCreatedAt(\DateTimeImmutable $created_at): static
+    public function setCreatedAt(\DateTimeImmutable $createdAt): static
     {
-        $this->created_at = $created_at;
+        $this->createdAt = $createdAt;
 
         return $this;
     }
 
     public function getUpdatedAt(): ?\DateTimeImmutable
     {
-        return $this->updated_at;
+        return $this->updatedAt;
     }
 
-    public function setUpdatedAt(?\DateTimeImmutable $updated_at): static
+    public function setUpdatedAt(?\DateTimeImmutable $updatedAt): static
     {
-        $this->updated_at = $updated_at;
+        $this->updatedAt = $updatedAt;
 
         return $this;
     }
 
     public function getAssignedTo(): ?User
     {
-        return $this->assigned_to;
+        return $this->assignedTo;
     }
 
-    public function setAssignedTo(?User $assigned_to): static
+    public function setAssignedTo(?User $assignedTo): static
     {
-        $this->assigned_to = $assigned_to;
+        $this->assignedTo = $assignedTo;
 
         return $this;
     }
