@@ -1,0 +1,44 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Account - Create{% endblock %}
+
+{% block body %}
+
+<div class="container-fluid mt-5">
+    {{ form_start(form) }}
+        <div class="row">
+            <div class="col-md-10">
+                <h1 class="">Create</h1>
+            </div>
+            <div class="btn-group col-md-2 d-flex align-items-center justify-content-end" role="group">
+                <span class="mx-1">
+                    {{ form_widget(form.submit, {'attr': {'class': 'btn btn-primary'}}) }}
+                </span>
+                <span>
+                    <a href="{{ path('account_index') }}" class="btn btn-primary">Cancel</a>
+                </span>
+            </div>
+        </div>
+    
+        <div class="row account-form">
+            <div class="col-md-6">
+                {{ form_row(form.name, {'attr': {'class': 'form-control input'}}) }}
+                {{ form_row(form.billingStreet, {'attr': {'class': 'form-control input'}}) }}
+                {{ form_row(form.billingCity, {'attr': {'class': 'form-control input'}}) }}
+                {{ form_row(form.billingState, {'attr': {'class': 'form-control input'}}) }}
+                {{ form_row(form.billingZip, {'attr': {'class': 'form-control input'}}) }}
+                {{ form_row(form.billingCountry, {'attr': {'class': 'form-control input'}}) }}
+            </div>
+            <div class="col-md-6">
+                {{ form_row(form.phone, {'attr': {'class': 'form-control input'}}) }}
+                {{ form_row(form.email, {'attr': {'class': 'form-control input'}}) }}
+                {{ form_row(form.taxNumber, {'attr': {'class': 'form-control input'}}) }}
+                {{ form_row(form.website, {'attr': {'class': 'form-control input'}}) }}
+                {{ form_row(form.description, {'attr': {'class': 'form-control input'}}) }}
+                {{ form_row(form.assignedTo, {'attr': {'class': 'form-control input'}}) }}
+            </div>
+        </div>
+    {{ form_end(form) }}
+</div>
+
+{% endblock %}
