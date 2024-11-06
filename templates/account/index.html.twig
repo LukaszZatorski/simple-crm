@@ -30,7 +30,7 @@
                         <td>{{ account.phone }}</td>
                         <td>{{ account.email }}</td>
                         <td>{{ account.taxNumber }}</td>
-                        <td>{{ account.createdAt|date('Y-m-d') }}</td>
+                        <td>{{ account.createdAt|format_datetime('short', 'short') }}</td>
                         <td>{{ account.assignedTo ? account.assignedTo.username : '' }}</td>
                     </tr>
                 {% else %}

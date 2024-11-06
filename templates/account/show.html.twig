@@ -3,26 +3,74 @@
 {% block title %}Account - Details{% endblock %}
 
 {% block body %}
-<div class="container mt-5">
-    <h1 class="mb-4">Account Details</h1>
-    <div class="card">
-        <div class="card-body">
-            <h5 class="card-title">{{ account.name }}</h5>
-            <p class="card-text"><strong>Billing Street:</strong> {{ account.billingStreet }}</p>
-            <p class="card-text"><strong>Billing City:</strong> {{ account.billingCity }}</p>
-            <p class="card-text"><strong>Billing State:</strong> {{ account.billingState }}</p>
-            <p class="card-text"><strong>Billing Zip:</strong> {{ account.billingZip }}</p>
-            <p class="card-text"><strong>Billing Country:</strong> {{ account.billingCountry }}</p>
-            <p class="card-text"><strong>Phone:</strong> {{ account.phone }}</p>
-            <p class="card-text"><strong>Email:</strong> {{ account.email }}</p>
-            <p class="card-text"><strong>Tax Number:</strong> {{ account.taxNumber }}</p>
-            <p class="card-text"><strong>Website:</strong> {{ account.website }}</p>
-            <p class="card-text"><strong>Description:</strong> {{ account.description }}</p>
-            <p class="card-text"><strong>Date Created:</strong> {{ account.createdAt|format_datetime('medium', 'short') }}</p>
-            <p class="card-text"><strong>Date Updated:</strong> {{ account.updatedAt ? account.updatedAt|format_datetime('medium', 'short') : '' }}</p>
-            <p class="card-text"><strong>Assigned To:</strong> {{ account.assignedTo ? account.assignedTo.username : '' }}</p>
-            <a href="{{ path('account_edit', {'id': account.id}) }}" class="btn btn-warning">Edit</a>
-            <a href="{{ path('account_index') }}" class="btn btn-secondary">Back to list</a>
+<div class="container-fluid mt-5">
+    <div class="row">
+        <div class="col-md-10">
+            <h1 class="">Account Details</h1>
+        </div>
+        <div class="btn-group col-md-2 d-flex align-items-center justify-content-end" role="group">
+            <span>
+                <a href="{{ path('account_index') }}" class="btn btn-primary">Back to list</a>
+            </span>
+        </div>
+    </div>
+
+    <div class="row account-form mt-4">
+        <div class="col-md-6">
+            <div class="mb-3">
+                <div><strong>Name:</strong></div>
+                <div>{{ account.name ?: '&nbsp;'|raw }}</div>
+            </div>
+            <div class="mb-3">
+                <div><strong>Phone:</strong></div>
+                <div>{{ account.phone ?: '&nbsp;'|raw }}</div>
+            </div>
+            <div class="mb-3">
+                <div><strong>Billing address</strong></div>
+                <div>{{ account.billingStreet ?: '&nbsp;'|raw }}</div>
+                <div>{{ account.billingZip ?: '&nbsp;'|raw }}</div>
+                <div>{{ account.billingCity ?: '&nbsp;'|raw }}</div>
+                <div>{{ account.billingState ?: '&nbsp;'|raw }}</div>
+                <div>{{ account.billingCountry ?: '&nbsp;'|raw }}</div>
+            </div>
+            <div class="mb-3">
+                <div><strong>Description:</strong></div>
+                <div>{{ account.description ?: '&nbsp;'|raw }}</div>
+            </div>
+            <div class="mb-3">
+                <div><strong>Date Created:</strong></div>
+                <div>{{ account.createdAt|format_datetime('short', 'short') ?: '&nbsp;'|raw }}</div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="mb-3">
+                <div><strong>Tax Number:</strong></div>
+                <div>{{ account.taxNumber ?: '&nbsp;'|raw }}</div>
+            </div>
+            <div class="mb-3">
+                <div><strong>Email:</strong></div>
+                <div>{{ account.email ?: '&nbsp;'|raw }}</div>
+            </div>
+            <div class="mb-3">
+                <div><strong>Shipping address</strong></div>
+                <div>{{ account.billingStreet ?: '&nbsp;'|raw }}</div>
+                <div>{{ account.billingZip ?: '&nbsp;'|raw }}</div>
+                <div>{{ account.billingCity ?: '&nbsp;'|raw }}</div>
+                <div>{{ account.billingState ?: '&nbsp;'|raw }}</div>
+                <div>{{ account.billingCountry ?: '&nbsp;'|raw }}</div>
+            </div>
+            <div class="mb-3">
+                <div><strong>Website:</strong></div>
+                <div>{{ account.website ?: '&nbsp;'|raw }}</div>
+            </div>
+            <div class="mb-3">
+                <div><strong>Date Updated:</strong></div>
+                <div>{{ account.updatedAt ? account.updatedAt|format_datetime('short', 'short') : '&nbsp;'|raw }}</div>
+            </div>
+            <div class="mb-3">
+                <div><strong>Assigned To:</strong></div>
+                <div>{{ account.assignedTo ? account.assignedTo.username : '&nbsp;'|raw }}</div>
+            </div>
         </div>
     </div>
 </div>

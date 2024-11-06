@@ -19,8 +19,14 @@
                             <li class="nav-item">
                                 <a class="nav-link" href="{{ path('home') }}">Home</a>
                             </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="{{ path('account_index') }}">Accounts</a>
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle" href="{{ path('account_index') }}">
+                                    Accounts
+                                </a>
+                                <ul class="dropdown-menu" aria-labelledby="accountsDropdown">
+                                    <li><a class="dropdown-item" href="{{ path('account_new') }}">New Account</a></li>
+                                    <li><a class="dropdown-item" href="{{ path('account_index') }}">View Accounts</a></li>
+                                </ul>
                             </li>
                         </ul>
                         <ul class="navbar-nav ms-auto">
