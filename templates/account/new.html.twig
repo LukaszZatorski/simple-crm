@@ -20,22 +20,72 @@
             </div>
         </div>
     
-        <div class="row account-form">
-            <div class="col-md-6">
-                {{ form_row(form.name, {'attr': {'class': 'form-control input'}}) }}
-                {{ form_row(form.billingStreet, {'attr': {'class': 'form-control input'}}) }}
-                {{ form_row(form.billingZip, {'attr': {'class': 'form-control input'}}) }}
-                {{ form_row(form.billingCity, {'attr': {'class': 'form-control input'}}) }}
-                {{ form_row(form.billingState, {'attr': {'class': 'form-control input'}}) }}
-                {{ form_row(form.billingCountry, {'attr': {'class': 'form-control input'}}) }}
+        <div class="account-form mb-5">
+            <div class="row">
+                <div class="col-md-6">
+                    {{ form_row(form.name, {'attr': {'class': 'form-control input'}}) }}
+                </div>
+                <div class="col-md-6">
+                    {{ form_row(form.taxNumber, {'attr': {'class': 'form-control input'}}) }}
+                </div>
             </div>
-            <div class="col-md-6">
-                {{ form_row(form.phone, {'attr': {'class': 'form-control input'}}) }}
-                {{ form_row(form.email, {'attr': {'class': 'form-control input'}}) }}
-                {{ form_row(form.taxNumber, {'attr': {'class': 'form-control input'}}) }}
-                {{ form_row(form.website, {'attr': {'class': 'form-control input'}}) }}
-                {{ form_row(form.description, {'attr': {'class': 'form-control input'}}) }}
-                {{ form_row(form.assignedTo, {'attr': {'class': 'form-control input'}}) }}
+            <div class="row">
+                <div class="col-md-6">
+                    {{ form_row(form.phone, {'attr': {'class': 'form-control input'}}) }}
+                </div>
+                <div class="col-md-6">
+                    {{ form_row(form.email, {'attr': {'class': 'form-control input'}}) }}
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-6">
+                    {{ form_row(form.billingStreet, {'attr': {'class': 'form-control input'}}) }}
+                </div>
+                <div class="col-md-6">
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-6">
+                    {{ form_row(form.billingZip, {'attr': {'class': 'form-control input'}}) }}
+                </div>
+                <div class="col-md-6">
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-6">
+                    {{ form_row(form.billingCity, {'attr': {'class': 'form-control input'}}) }}
+                </div>
+                <div class="col-md-6">
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-6">
+                    {{ form_row(form.billingState, {'attr': {'class': 'form-control input'}}) }}
+                </div>
+                <div class="col-md-6">
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-6">
+                    {{ form_row(form.billingCountry, {'attr': {'class': 'form-control input'}}) }}
+                </div>
+                <div class="col-md-6">
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-6">
+                    {{ form_row(form.description, {'attr': {'class': 'form-control input'}}) }}
+                </div>
+                <div class="col-md-6">
+                    {{ form_row(form.website, {'attr': {'class': 'form-control input'}}) }}
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-6">
+                </div>
+                <div class="col-md-6">
+                    {{ form_row(form.assignedTo, {'attr': {'class': 'form-control input'}}) }}
+                </div>
             </div>
         </div>
     {{ form_end(form) }}

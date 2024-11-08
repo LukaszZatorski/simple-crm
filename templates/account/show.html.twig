@@ -16,16 +16,28 @@
     </div>
 
     <div class="row account-form mt-4">
-        <div class="col-md-6">
-            <div class="mb-3">
+        <div class="row mb-3">
+            <div class="col-md-6">
                 <div><strong>Name:</strong></div>
                 <div>{{ account.name ?: '&nbsp;'|raw }}</div>
             </div>
-            <div class="mb-3">
+            <div class="col-md-6">
+                <div><strong>Tax Number:</strong></div>
+                <div>{{ account.taxNumber ?: '&nbsp;'|raw }}</div>
+            </div>
+        </div>
+        <div class="row mb-3">
+            <div class="col-md-6">
                 <div><strong>Phone:</strong></div>
                 <div>{{ account.phone ?: '&nbsp;'|raw }}</div>
             </div>
-            <div class="mb-3">
+            <div class="col-md-6">
+                <div><strong>Email:</strong></div>
+                <div>{{ account.email ?: '&nbsp;'|raw }}</div>
+            </div>
+        </div>
+        <div class="row mb-3">
+            <div class="col-md-6">
                 <div><strong>Billing address</strong></div>
                 <div>{{ account.billingStreet ?: '&nbsp;'|raw }}</div>
                 <div>{{ account.billingZip ?: '&nbsp;'|raw }}</div>
@@ -33,25 +45,7 @@
                 <div>{{ account.billingState ?: '&nbsp;'|raw }}</div>
                 <div>{{ account.billingCountry ?: '&nbsp;'|raw }}</div>
             </div>
-            <div class="mb-3">
-                <div><strong>Description:</strong></div>
-                <div>{{ account.description ?: '&nbsp;'|raw }}</div>
-            </div>
-            <div class="mb-3">
-                <div><strong>Date Created:</strong></div>
-                <div>{{ account.createdAt|format_datetime('short', 'short') ?: '&nbsp;'|raw }}</div>
-            </div>
-        </div>
-        <div class="col-md-6">
-            <div class="mb-3">
-                <div><strong>Tax Number:</strong></div>
-                <div>{{ account.taxNumber ?: '&nbsp;'|raw }}</div>
-            </div>
-            <div class="mb-3">
-                <div><strong>Email:</strong></div>
-                <div>{{ account.email ?: '&nbsp;'|raw }}</div>
-            </div>
-            <div class="mb-3">
+            <div class="col-md-6">
                 <div><strong>Shipping address</strong></div>
                 <div>{{ account.billingStreet ?: '&nbsp;'|raw }}</div>
                 <div>{{ account.billingZip ?: '&nbsp;'|raw }}</div>
@@ -59,15 +53,31 @@
                 <div>{{ account.billingState ?: '&nbsp;'|raw }}</div>
                 <div>{{ account.billingCountry ?: '&nbsp;'|raw }}</div>
             </div>
-            <div class="mb-3">
+        </div>
+        <div class="row mb-3">
+            <div class="col-md-6">
+                <div><strong>Description:</strong></div>
+                <div>{{ account.description ?: '&nbsp;'|raw }}</div>
+            </div>
+            <div class="col-md-6">
                 <div><strong>Website:</strong></div>
                 <div>{{ account.website ?: '&nbsp;'|raw }}</div>
             </div>
-            <div class="mb-3">
+        </div>
+        <div class="row mb-3">
+            <div class="col-md-6">
+                <div><strong>Date Created:</strong></div>
+                <div>{{ account.createdAt|format_datetime('short', 'short') ?: '&nbsp;'|raw }}</div>
+            </div>
+            <div class="col-md-6">
                 <div><strong>Date Updated:</strong></div>
                 <div>{{ account.updatedAt ? account.updatedAt|format_datetime('short', 'short') : '&nbsp;'|raw }}</div>
             </div>
-            <div class="mb-3">
+        </div>
+        <div class="row mb-3">
+            <div class="col-md-6">
+            </div>
+            <div class="col-md-6">
                 <div><strong>Assigned To:</strong></div>
                 <div>{{ account.assignedTo ? account.assignedTo.username : '&nbsp;'|raw }}</div>
             </div>
