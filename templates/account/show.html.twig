@@ -3,14 +3,23 @@
 {% block title %}Account - Details{% endblock %}
 
 {% block body %}
+{% for message in app.flashes('notification') %}
+    <div class="alert alert-info alert-dismissible fade show mt-2">
+        {{ message }}
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+{% endfor %}
 <div class="container-fluid mt-5">
     <div class="row">
         <div class="col-md-10">
             <h1 class="">Account Details</h1>
         </div>
-        <div class="btn-group col-md-2 d-flex align-items-center justify-content-end" role="group">
+        <div class="btn-group col-md-2 d-flex align-items-center justify-content-end gap-2" role="group">
             <span>
-                <a href="{{ path('account_index') }}" class="btn btn-primary">Back to list</a>
+                <a href="{{ path('account_edit', {'id': account.id}) }}" class="btn btn-primary">Edit</a>
+            </span>
+            <span>
+                <a href="{{ path('account_index') }}" class="btn btn-secondary">Back to list</a>
             </span>
         </div>
     </div>
