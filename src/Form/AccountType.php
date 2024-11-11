@@ -29,7 +29,7 @@ class AccountType extends AbstractType
             ->add('description')
             ->add('assignedTo', EntityType::class, [
                 'class' => User::class,
-                'choice_label' => 'username',
+                'choice_label' => 'getFullName',
             ])
             ->add('submit', SubmitType::class)
         ;

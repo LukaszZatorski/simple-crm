@@ -88,7 +88,7 @@
             </div>
             <div class="col-md-6">
                 <div><strong>Assigned To:</strong></div>
-                <div>{{ account.assignedTo ? account.assignedTo.username : '&nbsp;'|raw }}</div>
+                <div>{{ account.assignedTo ? account.assignedTo.getFullname : '&nbsp;'|raw }}</div>
             </div>
         </div>
     </div>
