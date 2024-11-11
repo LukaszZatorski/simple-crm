@@ -4,6 +4,7 @@ namespace App\Controller;
 
 use App\Entity\Account;
 use App\Form\AccountType;
+use App\Notifier\AccountAssignNotification;
 use App\Repository\AccountRepository;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -11,12 +12,14 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Notifier\Notification\Notification;
 use Symfony\Component\Notifier\NotifierInterface;
+use Symfony\Component\Notifier\Recipient\Recipient;
 use Symfony\Component\Routing\Attribute\Route;
 
 class AccountController extends AbstractController
 {
     public function __construct(
-        private EntityManagerInterface $entityManager
+        private EntityManagerInterface $entityManager,
+        private NotifierInterface $notifier,
     ) {
     }
 
@@ -27,7 +30,6 @@ class AccountController extends AbstractController
         $paginator = $accountRepository->findPaginatedAccounts($page);
 
         return $this->render('account/index.html.twig', [
-            'controller_name' => 'AccountController',
             'accounts' => $paginator,
             'current_page' => $page,
             'total_pages' => ceil(count($paginator) / AccountRepository::COMMENTS_PER_PAGE),
@@ -36,8 +38,7 @@ class AccountController extends AbstractController
 
     #[Route('/accounts/new', name: 'account_new')]
     public function new(
-        Request $request,
-        NotifierInterface $notifier
+        Request $request
         ): Response
     {
         $account = new Account();
@@ -48,8 +49,12 @@ class AccountController extends AbstractController
         if ($form->isSubmitted() && $form->isValid()) {
             $this->entityManager->persist($account);
             $this->entityManager->flush();
+
+            if($account->getAssignedTo()->getId() !== $this->getUser()->getId()) {
+                $this->notifier->send(new AccountAssignNotification($account), new Recipient($account->getAssignedTo()->getEmail()));
+            }
             
-            $notifier->send(new Notification('Your created new Account!', ['browser']));
+            $this->notifier->send(new Notification('Your created new Account!', ['browser']));
 
             return $this->redirectToRoute('account_index');
         }
@@ -70,10 +75,11 @@ class AccountController extends AbstractController
     #[Route('/account/{id}/edit', name: 'account_edit', methods: ['GET', 'POST'])]
     public function edit(
         Request $request,
-        Account $account,
-        NotifierInterface $notifier
+        Account $account
         ): Response
     {
+        $originalAssignedTo = $account->getAssignedTo();
+        
         $form = $this->createForm(AccountType::class, $account);
         $form->handleRequest($request);
 
@@ -81,7 +87,11 @@ class AccountController extends AbstractController
             $this->entityManager->persist($account);
             $this->entityManager->flush();
 
-            $notifier->send(new Notification('Your changes were saved!', ['browser']));
+            if($originalAssignedTo !== $account->getAssignedTo() && $account->getAssignedTo() !== $this->getUser()) {
+                $this->notifier->send(new AccountAssignNotification($account), new Recipient($account->getAssignedTo()->getEmail()));
+            }
+
+            $this->notifier->send(new Notification('Your changes were saved!', ['browser']));
 
             return $this->redirectToRoute('account_show', ['id' => $account->getId()]);
         }

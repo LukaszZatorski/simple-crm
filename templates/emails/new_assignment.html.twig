@@ -1,0 +1,13 @@
+{% extends '@email/default/notification/body.html.twig' %}
+
+{% block content %}
+    <p>
+        You have been assigned to the {{module_name}} <strong>{{ entity.name }}</strong>.
+    </p>
+{% endblock %}
+
+{% block action %}
+    <spacer size="16"></spacer>
+    You can access the {{module_name}} by clicking the following link:
+    <a href="{{ url(module_name ~ '_show', { 'id': entity.id }) }}">{{ url(module_name ~ '_show', { 'id': entity.id }) }}</a>
+{% endblock %}
